@@ -1,24 +1,11 @@
-// Dependencies
 import { NextResponse } from "next/server";
-import { draftMode } from "next/headers";
-import { redirect } from "next/navigation";
 
 /**
- * Handle Preview mode feature disable
- *
- * @param {Request} request
- * @return {Response}
+ * Simple disable-preview API endpoint for AxieStudio
+ * Returns unauthorized since we don't use Sanity CMS preview
  */
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const slug = searchParams.has("slug")
-    ? searchParams.get("slug")?.replace(/^\//, "")
-    : "/";
-  // Disable draft mode
-  draftMode().disable();
-
-  // Redirect to the current preview page
-  redirect(`/${slug}`);
+  return new Response("Preview not available", { status: 401 });
 }
 
 export const OPTIONS = async () => {

@@ -79,9 +79,9 @@ const Header = () => {
                     {item.comingSoon && <Badge />}
                   </div>
                   <div>
-                    {item.subTabs && (
+                    {(item as any).subTabs && (
                       <div className={styles.drawerSubItemContainer}>
-                        {item.subTabs.map((sub) => (
+                        {(item as any).subTabs.map((sub: any) => (
                           <div key={sub.title} className={styles.drawerSubItem}>
                             {sub.download ? (
                               <a
@@ -166,10 +166,10 @@ const Header = () => {
                     </Display>
                   )}
 
-                  {item?.subTabs && <DownArrow />}
+                  {(item as any)?.subTabs && <DownArrow />}
                   {item?.comingSoon && <Badge />}
 
-                  {item?.subTabs && isHovered && (
+                  {(item as any)?.subTabs && isHovered && (
                     <div
                       className={styles.dropdown}
                       onMouseEnter={() => clearTimeout(leaveTimeout.current)}
@@ -180,7 +180,7 @@ const Header = () => {
                         );
                       }}
                     >
-                      {item.subTabs.map((sub) => (
+                      {(item as any).subTabs.map((sub: any) => (
                         <>
                           {sub.download ? (
                             <a

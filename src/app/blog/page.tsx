@@ -1,49 +1,13 @@
-import { draftMode } from "next/headers";
-
-// Backend
-import { sanityFetch } from "@/lib/backend/sanity/client";
-import { BLOG_POSTS_PAGINATED_QUERY } from "@/lib/backend/sanity/queries";
-
 // Components
 import PageLayout from "@/components/layout/page";
 import Display from "@/components/ui/Display";
-import { generateBlogExcerpt } from "@/lib/utils/generateBlogExcerpt";
-import LinesOverlay from "@/components/ui/Blog/LinesOverlay";
 import { BackgroundGradient } from "@/components/BackgroundGradient";
 import { Metadata, NextPage } from "next";
-import { BlogPost } from "@/lib/types/sanity";
-import PostsFeed from "@/components/ui/Blog/PostsFeed";
-import SearchAskField from "@/components/ui/Blog/SearchAskField";
-import { LatestPost } from "@/components/ui/Blog/LatestPost";
+import Text from "@/components/ui/text";
 
 export const dynamic = "force-static";
 
 const BlogIndex: NextPage = async () => {
-  // Check for draft mode to fetch preview content
-  const isDraftMode = draftMode().isEnabled;
-
-  // Pagination settings
-  const LIMIT = 7;
-
-  // Fetch first batch of posts
-  const posts = await sanityFetch<BlogPost[]>(
-    BLOG_POSTS_PAGINATED_QUERY,
-    { start: 0, end: LIMIT },
-    isDraftMode
-  );
-
-  // Generate excerpts
-  const postsWithExcerpts = await Promise.all(
-    posts.map(async (post) => ({
-      ...post,
-      excerpt:
-        post.excerpt ?? (await generateBlogExcerpt(post.body)) ?? undefined,
-    }))
-  );
-
-  const latestPost = postsWithExcerpts[0];
-  const initialOtherPosts = postsWithExcerpts.slice(1);
-
   return (
     <PageLayout className="layout" type="normal">
       <BackgroundGradient />
@@ -53,7 +17,9 @@ const BlogIndex: NextPage = async () => {
             <Display size={700} tagName="h1">
               Blog
             </Display>
-            <SearchAskField className="position-relative z-3" />
+            <Text size={200} className="text-white">
+              Coming soon! Our blog will feature the latest updates, tutorials, and insights about AxieStudio.
+            </Text>
           </div>
         </div>
       </section>
@@ -62,19 +28,15 @@ const BlogIndex: NextPage = async () => {
         <div className="row">
           <div className="col">
             <div className="d-grid gap-4 position-relative" id="blog-section">
-              {latestPost && <LatestPost post={latestPost} />}
               <Display
                 size={400}
                 style={{ paddingLeft: 11, paddingTop: "1rem" }}
               >
-                Older Posts
+                No Posts Yet
               </Display>
-              <PostsFeed
-                initialPosts={initialOtherPosts}
-                initialOffset={postsWithExcerpts.length}
-                limit={LIMIT}
-              />
-              <LinesOverlay />
+              <Text size={200} className="text-white" style={{ paddingLeft: 11 }}>
+                We're working on creating valuable content for you. Check back soon!
+              </Text>
             </div>
           </div>
         </div>
@@ -84,21 +46,21 @@ const BlogIndex: NextPage = async () => {
 };
 
 export const metadata: Metadata = {
-  title: "Blog | Langflow - The fastest way to build AI Agents",
+  title: "Blog | AxieStudio - Customer Service Automation",
   openGraph: {
-    url: "https://langflow.org/blog",
-    siteName: "Langflow",
+    url: "https://axiestudio.se/blog",
+    siteName: "AxieStudio",
     images: [
       {
-        url: "/images/blog-og-image.png",
+        url: "/favicon.ico",
         width: 1200,
         height: 630,
-        alt: "Langflow - Low-code AI builder",
+        alt: "AxieStudio - Customer Service Automation",
       },
     ],
   },
   description:
-    "Explore the latest news, updates, and insights from the Langflow team. Learn about the latest features, best practices, and how to get the most out of Langflow.",
+    "Coming soon! Our blog will feature the latest updates, tutorials, and insights about AxieStudio customer service automation.",
 };
 
 export default BlogIndex;

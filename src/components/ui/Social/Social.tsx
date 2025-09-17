@@ -25,9 +25,6 @@ const Social = () => {
           >
             <div className={styles.social}>
               {s.icon}
-              <Display size={100} weight={400}>
-                {s.count}
-              </Display>
             </div>
           </Link>
         </div>
