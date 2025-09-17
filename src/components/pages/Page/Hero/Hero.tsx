@@ -2,10 +2,10 @@
 import { type FC } from "react";
 
 // Types
-import type { SectionHero } from "@/lib/types/sanity.types";
+// AxieStudio placeholder types
 
 // Components
-import PortableText from "@/components/external/PortableText";
+// AxieStudio does not use PortableText
 import DownloadButton from "@/components/ui/Buttons";
 import Display from "@/components/ui/Display";
 
@@ -25,7 +25,7 @@ const Hero: FC<Props> = ({ title, content, sectionId }) => {
               {title}
             </Display>
             <Display className={styles.subtitle} size={200} tagName="div">
-              <PortableText value={content} />
+              <p>Content not available - AxieStudio focuses on AI workflow automation.</p>
             </Display>
             {/* <DownloadButton url="/desktop-form" /> */}
           </div>

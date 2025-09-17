@@ -1,8 +1,0 @@
-.avatars {
-  display: flex;
-  flex-wrap: nowrap;
-
-  img:not(:first-child) {
-    margin-left: -8px;
-  }
-}

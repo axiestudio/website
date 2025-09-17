@@ -2,17 +2,18 @@
 import { FC } from "react";
 
 // Types
-import type { SectionForm } from "@/lib/types/sanity.types";
+// AxieStudio placeholder types
 
 // Components
-import PortableText from "@/components/external/PortableText";
+// AxieStudio does not use PortableText
 import Display from "@/components/ui/Display";
 import MarketoForm from "@/components/ui/form";
 
 // Styles
 import styles from "./styles.module.scss";
 
-// Props types
+// Props types - AxieStudio placeholder
+type SectionForm = { title?: string; content?: any; sectionId?: string };
 type Props = SectionForm;
 
 const Form: FC<Props> = ({ title, content, sectionId }) => {
@@ -25,7 +26,7 @@ const Form: FC<Props> = ({ title, content, sectionId }) => {
               {title}
             </Display>
             <Display className={styles.subtitle} size={100} tagName="div">
-              <PortableText value={content} />
+              <p>Content not available - AxieStudio focuses on AI workflow automation.</p>
             </Display>
             <MarketoForm
               allowBypass={true}

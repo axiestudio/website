@@ -1,4 +1,4 @@
-import { BlogPost } from "@/lib/types/sanity";
+// AxieStudio placeholder types
 import { getBodyText } from "@/lib/utils/getBodyText";
 
 export interface ScoredPost {

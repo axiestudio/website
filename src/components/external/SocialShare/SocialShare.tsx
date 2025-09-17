@@ -5,7 +5,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 
 // Types
-// import { SEO } from "@/lib/types/sanity";
+// // AxieStudio placeholder types
 
 // Utilities
 // import { getLocale } from "@/lib/utils/intl";

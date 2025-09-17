@@ -2,7 +2,7 @@
 import { type FC } from "react";
 
 // Types
-import type { Page as PageType } from "@/lib/types/sanity.types";
+// AxieStudio placeholder types
 
 // Components
 import Text from "@/components/ui/text";

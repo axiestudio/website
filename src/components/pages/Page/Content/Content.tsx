@@ -1,8 +1,8 @@
 // Dependencies
 import { FC } from "react";
 
-// Types
-import type { SectionContent } from "@/lib/types/sanity.types";
+// AxieStudio doesn't use Sanity - placeholder type
+type SectionContent = any;
 
 // Components
 import Display from "@/components/ui/Display";
@@ -10,7 +10,7 @@ import Display from "@/components/ui/Display";
 // Styles
 import styles from "./styles.module.scss";
 import Text from "@/components/ui/text";
-import PortableText from "@/components/external/PortableText";
+// AxieStudio doesn't use PortableText - removed
 
 // Props types
 type Props = SectionContent & {
@@ -34,7 +34,8 @@ const Content: FC<Props> = ({ content, title, sectionId, center = true }) => {
             )}
 
             <Text className={styles.article} size={300} tagName="article">
-              <PortableText value={content} />
+              {/* AxieStudio doesn't use PortableText - placeholder content */}
+              <p>Content not available - AxieStudio focuses on AI workflow automation.</p>
             </Text>
           </div>
         </div>

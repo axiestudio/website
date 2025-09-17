@@ -4,7 +4,14 @@ import { ConsultationEmailTemplate } from '@/components/email/ConsultationEmailT
 import { ConsultationConfirmationTemplate } from '@/components/email/ConsultationConfirmationTemplate';
 import { saveConsultationRequest } from '@/lib/database';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend only if API key is available
+const getResendClient = () => {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey || apiKey === 'placeholder') {
+    return null;
+  }
+  return new Resend(apiKey);
+};
 
 export async function POST(request: NextRequest) {
   try {
@@ -28,45 +35,61 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Get Resend client
+    const resend = getResendClient();
+
     // Send notification email to your team using Resend
-    const { data: adminData, error: adminError } = await resend.emails.send({
-      from: 'AxieStudio Consultation <consultation@axiestudio.se>',
-      to: [process.env.EMAIL || 'stefan@axiestudio.se'],
-      subject: `🎯 New Consultation Request from ${name}`,
-      react: ConsultationEmailTemplate({
-        name,
-        email,
-        company,
-        phone,
-        usecase,
-        timeline,
-        referrer,
-      }),
-      replyTo: email, // Allow direct reply to the client
-    });
+    let adminData = null;
+    let adminError = null;
+    let userConfirmData = null;
+    let userConfirmError = null;
 
-    if (adminError) {
-      console.error('Admin email error:', adminError);
-      return NextResponse.json(
-        { error: 'Failed to send consultation request' },
-        { status: 500 }
-      );
+    if (resend) {
+      const adminResult = await resend.emails.send({
+        from: 'AxieStudio Consultation <consultation@axiestudio.se>',
+        to: [process.env.EMAIL || 'stefan@axiestudio.se'],
+        subject: `🎯 New Consultation Request from ${name}`,
+        react: ConsultationEmailTemplate({
+          name,
+          email,
+          company,
+          phone,
+          usecase,
+          timeline,
+          referrer,
+        }),
+        replyTo: email, // Allow direct reply to the client
+      });
+      adminData = adminResult.data;
+      adminError = adminResult.error;
+
+      if (adminError) {
+        console.error('Admin email error:', adminError);
+        return NextResponse.json(
+          { error: 'Failed to send consultation request' },
+          { status: 500 }
+        );
+      }
+
+      // Wait 2 seconds to avoid Resend rate limiting (max 2 requests per second)
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Send confirmation email to the user
+      const userResult = await resend.emails.send({
+        from: 'AxieStudio Team <consultation@axiestudio.se>',
+        to: [email],
+        subject: `🎉 Thank You for Your Consultation Request - AxieStudio`,
+        react: ConsultationConfirmationTemplate({
+          name,
+          usecase,
+          timeline,
+        }),
+      });
+      userConfirmData = userResult.data;
+      userConfirmError = userResult.error;
+    } else {
+      console.log('Resend not configured - emails will not be sent');
     }
-
-    // Wait 2 seconds to avoid Resend rate limiting (max 2 requests per second)
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    // Send confirmation email to the user
-    const { data: userConfirmData, error: userConfirmError } = await resend.emails.send({
-      from: 'AxieStudio Team <consultation@axiestudio.se>',
-      to: [email],
-      subject: `🎉 Thank You for Your Consultation Request - AxieStudio`,
-      react: ConsultationConfirmationTemplate({
-        name,
-        usecase,
-        timeline,
-      }),
-    });
 
     if (userConfirmError) {
       console.error('User confirmation email error:', userConfirmError);

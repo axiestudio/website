@@ -1,4 +1,4 @@
-﻿import Facebook from "@/components/icons/facebook/Facebook";
+import Facebook from "@/components/icons/facebook/Facebook";
 import Instagram from "@/components/icons/instagram/Instagram";
 import Youtube from "@/components/icons/youtube/Youtube";
 import CloudPlatform from "@/components/pages/Home/Notebook/CloudPlatform";
