@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "company": "Test Company",
+    "phone": "+1-555-0123",
+    "usecase": "Testing email functionality for AxieStudio",
+    "timeline": "ASAP",
+    "id": "mfo44fwy1enuocnute9",
+    "timestamp": "2025-09-17T15:04:19.090Z",
+    "status": "pending"
+  },
+  {
+    "name": "asa",
+    "email": "stefanjohnmiranda3@gmail.com",
+    "company": "0409172350",
+    "phone": "+46735132620",
+    "usecase": "asfgd",
+    "timeline": "immediately",
+    "referrer": "",
+    "id": "mfo47qik3u1qr3sxcks",
+    "timestamp": "2025-09-17T15:06:52.796Z",
+    "status": "pending"
+  },
+  {
+    "name": "Speed Test User",
+    "email": "consultation-speed-test@example.com",
+    "company": "Performance Testing Co",
+    "phone": "+1-555-SPEED",
+    "usecase": "Testing optimized email performance for AxieStudio",
+    "timeline": "ASAP",
+    "id": "mfo4d4xc474rv7492lb",
+    "timestamp": "2025-09-17T15:11:04.752Z",
+    "status": "pending"
+  }
+]

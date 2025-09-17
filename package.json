@@ -1,6 +1,6 @@
 {
-  "name": "langflow",
-  "version": "0.1.0",
+  "name": "axiestudio-website",
+  "version": "1.0.0",
   "private": true,
   "engines": {
     "node": "^20.x"
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@portabletext/react": "^3.2.1",
+    "@react-email/render": "^1.2.3",
     "@sanity/client": "^7.4.0",
     "@sanity/image-url": "^1.1.0",
     "@sentry/nextjs": "^9.37.0",
@@ -38,6 +39,7 @@
     "rehype-highlight": "^7.0.2",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
+    "resend": "^6.1.0",
     "styled-components": "^6.1.18",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"

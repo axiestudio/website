@@ -1,0 +1,205 @@
+@import "/src/styles/variables";
+@import "~bootstrap/scss/mixins";
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  color: var(--primary-white);
+  background: #000;
+  min-height: 100vh;
+}
+
+.content {
+  line-height: 1.6;
+}
+
+.welcomeSection {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--primary-white);
+  
+  @include media-breakpoint-down(md) {
+    font-size: 28px;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navItem {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-white);
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.section {
+  margin-bottom: 40px;
+  
+  h2 {
+    font-family: var(--font-body);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--primary-white);
+  }
+  
+  p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+  }
+}
+
+.link {
+  color: #4A9EFF;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.cookieOptions {
+  margin: 24px 0;
+}
+
+.cookieOption {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cookieLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  
+  input[type="checkbox"] {
+    display: none;
+  }
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid var(--primary-white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+}
+
+.cookieLabel input[type="checkbox"]:checked + .checkmark {
+  background: #4A9EFF;
+  border-color: #4A9EFF;
+  
+  &::after {
+    opacity: 1;
+  }
+}
+
+.cookieLabel input[type="checkbox"]:disabled + .checkmark {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+  
+  &::after {
+    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.cookieInfo {
+  flex: 1;
+  
+  h4 {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--primary-white);
+  }
+  
+  p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+}
+
+.saveButton, .acceptAllButton {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveButton {
+  background: transparent;
+  color: var(--primary-white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.acceptAllButton {
+  background: #4A9EFF;
+  color: white;
+  
+  &:hover {
+    background: #3A8EEF;
+  }
+}

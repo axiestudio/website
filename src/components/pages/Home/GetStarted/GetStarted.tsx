@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import StaticImage from "@/components/ui/media/StaticImage";
 import Button from "@/components/ui/button/Button";
 import { ButtonTypes } from "@/components/ui/button/types";
-import Github from "@/components/ui/icons/Github";
+import Code from "@/components/ui/icons/Code";
 import { GET_STARTED } from "@/utils/constants";
 import Link from "@/components/ui/Link";
 
@@ -30,7 +30,7 @@ const GetStarted = () => {
                 onClick={() => {
                   return false;
                 }}
-                data-event="Langflow.org - CTA Clicked"
+                data-event="AxieStudio.se - CTA Clicked"
                 data-text={primary.label}
                 data-section="get-started"
               >
@@ -43,8 +43,8 @@ const GetStarted = () => {
                 onClick={() => {
                   return false;
                 }}
-                icon={<Github />}
-                data-event="Langflow.org - CTA Clicked"
+                icon={<Code />}
+                data-event="AxieStudio.se - CTA Clicked"
                 data-text={secondary.label}
                 data-section="get-started"
               >

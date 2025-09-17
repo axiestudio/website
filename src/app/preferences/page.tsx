@@ -6,14 +6,14 @@ import { Suspense } from "react";
 
 export const generateMetadata = (): Metadata => {
   return {
-    title: "Cookie Preferences | Langflow",
-    description: "Langflow Cookie Preferences",
+    title: "Privacy Preferences | AxieStudio",
+    description: "AxieStudio Privacy Preferences and Cookie Management",
   };
 };
 
-const Desktop = async () => {
+const Preferences = async () => {
   return (
-    <Page className="layout " type="desktop">
+    <Page className="layout " type="normal">
       <Suspense fallback={<div>Loading...</div>}>
         <Template />
       </Suspense>
@@ -21,4 +21,4 @@ const Desktop = async () => {
   );
 };
 
-export default Desktop;
+export default Preferences;

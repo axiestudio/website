@@ -7,7 +7,7 @@ import StaticImage from "@/components/ui/media/StaticImage";
 import Button from "@/components/ui/button/Button";
 import { ButtonTypes } from "@/components/ui/button/types";
 import Github from "@/components/ui/icons/Github";
-import Stack from "../Stack";
+
 import ModelSelector from "../BlackBoxes/ModelSelector";
 import TemperatureComponent from "../BlackBoxes/Temperature";
 import InputComponent from "../BlackBoxes/InputField";
@@ -70,7 +70,7 @@ const Hero = () => {
                       onClick={() => {
                         return false;
                       }}
-                      data-event="Langflow.org - CTA Clicked"
+                      data-event="AxieStudio.se - CTA Clicked"
                       data-text={HERO_CONTENT.buttons.primary.label}
                       data-section="hero"
                     >
@@ -87,7 +87,7 @@ const Hero = () => {
                       onClick={() => {
                         return false;
                       }}
-                      data-event="Langflow.org - CTA Clicked"
+                      data-event="AxieStudio.se - CTA Clicked"
                       data-text={HERO_CONTENT.buttons.secondary.label}
                       data-section="hero"
                     >
@@ -106,7 +106,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <Stack />
+
       <DrawLine lines={lines} instanceId="hero" />
       <StaticImage
         src={HERO_CONTENT.image.src}

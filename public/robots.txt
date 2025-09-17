@@ -41,7 +41,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location - helps crawlers discover all pages efficiently
-Sitemap: https://langflow.org/sitemap.xml
+Sitemap: https://axiestudio.se/sitemap.xml
 
 # Block crawler access to technical and private areas
 # These paths don't provide value to search results and may contain sensitive data

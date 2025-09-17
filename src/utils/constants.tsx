@@ -1,192 +1,78 @@
-import Github from "@/components/icons/github/Github";
-import Discord from "@/components/icons/discord/Discord";
-import Twitter from "@/components/icons/Twitter/Twitter";
+﻿import Facebook from "@/components/icons/facebook/Facebook";
+import Instagram from "@/components/icons/instagram/Instagram";
 import Youtube from "@/components/icons/youtube/Youtube";
 import CloudPlatform from "@/components/pages/Home/Notebook/CloudPlatform";
 import Langflow from "@/components/pages/Home/Notebook/Langflow";
 import Signup from "@/components/pages/Home/Notebook/Signup";
-// Import all logo components
-import FyxtLogo from "@/components/ui/icons/Fyxt";
-import SurveyHub from "@/components/ui/icons/SurveyHub";
-import Athena from "@/components/ui/icons/Athena";
-import Ecclesiasical from "@/components/ui/icons/Ecclesiasical";
-import Ik from "@/components/ui/icons/Ik";
-import Foqum from "@/components/ui/icons/Foqum";
-import PAP from "@/components/ui/icons/PAP";
-import IntimeGDT from "@/components/ui/icons/IntimeGDT";
-import ButterUp from "@/components/ui/icons/ButterUp";
-import Contact from "@/components/icons/contact/Contact";
-import Linkedin from "@/components/icons/linkedin/Linkedin";
-import WinWeb from "@/components/ui/icons/WinWeb";
+
+
 import Apple from "@/components/ui/icons/Apple";
 import Windows from "@/components/ui/icons/Windows";
-import Globe from "@/components/ui/icons/Globe";
+
 
 const LIST = [
-  // {
-  //   title: "Marketplace",
-  //   link: "",
-  //   icon: "/assets/icons/marketplace.svg",
-  //   comingSoon: true,
-  // },
   {
     title: "Docs",
-    link: "http://docs.langflow.org/",
+    link: "https://docs.axiestudio.se/",
     icon: "/assets/icons/docs.svg",
     comingSoon: false,
   },
   {
-    title: "Resources",
-    link: "",
-    icon: "/assets/icons/resources.svg",
+    title: "Newsletter",
+    link: "/newsletter",
+    icon: "/assets/icons/newsletter.svg",
     comingSoon: false,
-    subTabs: [
-      {
-        title: "Changelog",
-        url: "https://github.com/langflow-ai/langflow/releases",
-        icon: null,
-        download: false,
-      },
-      {
-        title: "Blog",
-        url: "/blog",
-        icon: null,
-        download: false,
-      },
-      {
-        title: "Newsletter",
-        url: "/newsletter",
-        icon: null,
-        download: false,
-      },
-      {
-        title: "Events",
-        url: "/events",
-        icon: null,
-        download: false,
-      },
-      {
-        title: "Podcast",
-        url: "/podcast",
-        icon: null,
-        download: false,
-      },
-      {
-        title: "Brand Kit",
-        url: "/brandkit/brandkit.zip",
-        icon: null,
-        download: true,
-      },
-    ],
   },
   {
-    title: "Community",
-    link: "",
-    icon: "/assets/icons/community.svg",
-    comingSoon: false,
-    subTabs: [
-      {
-        title: "Contact us",
-        url: "mailto:contact@langflow.org",
-        icon: <Contact size="22" />,
-        download: false,
-      },
-      {
-        title: "GitHub",
-        url: "https://bit.ly/langflow",
-        icon: <Github size="22" />,
-        download: false,
-      },
-      {
-        title: "Discord",
-        url: "https://discord.gg/EqksyE2EX9",
-        icon: <Discord size="22" />,
-        download: false,
-      },
-      {
-        title: "X",
-        url: "https://x.com/langflow_ai",
-        icon: <Twitter size="22" />,
-        download: false,
-      },
-      {
-        title: "YouTube",
-        url: "https://www.youtube.com/@Langflow",
-        icon: <Youtube size="22" />,
-        download: false,
-      },
-      {
-        title: "LinkedIn",
-        url: "https://www.linkedin.com/company/langflow/",
-        icon: <Linkedin size="22" />,
-        download: false,
-      },
-    ],
-  },
-  {
-    title: "Download",
-    link: "/desktop",
-    icon: "",
+    title: "Consultation",
+    link: "/consultation",
+    icon: "/assets/icons/consultation.svg",
     comingSoon: false,
   },
 ];
 
 const SOCIALS = [
   {
-    icon: <Github />,
-    count: "73k",
-    url: "https://github.com/langflow-ai/langflow",
-    platform: "github",
+    icon: <Facebook />,
+    url: "https://www.facebook.com/p/Axie-Studio-61573009403109/",
+    platform: "facebook",
   },
   {
-    icon: <Discord />,
-    count: "18k",
-    url: "https://discord.com/invite/EqksyE2EX9",
-    platform: "discord",
-  },
-  {
-    icon: <Twitter />,
-    count: "10k",
-    url: "https://x.com/langflow_ai",
-    platform: "x",
+    icon: <Instagram />,
+    url: "https://www.instagram.com/axiestudi0/",
+    platform: "instagram",
   },
   {
     icon: <Youtube />,
-    count: "11k",
-    url: "https://www.youtube.com/@Langflow",
+    url: "https://www.youtube.com/channel/UCD4CAPRLqS3-NjBe8s2vr_g",
     platform: "youtube",
   },
 ];
 
 const QUOTES_DATA = [
   {
-    quote:
-      "Langflow lets us take complex product ideas and quickly bring them to life through visual flows that anyone can understand.",
-    authorName: "Jonathan Blomgren",
-    authorTitle: "Studios Director, BetterUp",
-    authorImage: "/images/Coo_2.png",
-    icon: <ButterUp />,
+    quote: "Build powerful booking agents and email automation with our proven Gmail Calendar Scheduling Agent - already downloaded 397 times with 29 likes!",
+    authorName: "Gmail & Calendar Integration",
+    authorTitle: "CrewAI + Composio + OpenAI",
+    authorImage: "/favicon_io/android-icon-192x192.png",
   },
   {
-    quote:
-      "Langflow has transformed our RAG application development, letting us focus more on creativity and less on complexity.",
-    authorName: "Jan Schummers",
-    authorTitle: "Sr. Software Engineer, WinWeb",
-    authorImage: "/images/Coo_3.png",
-    icon: <WinWeb />,
+    quote: "Connect with Slack, Outlook, Google Meet, Linear, Supabase, and 100+ business tools to create comprehensive customer service workflows.",
+    authorName: "Business Integrations",
+    authorTitle: "15+ Communication & 20+ Data Tools",
+    authorImage: "/favicon_io/android-icon-192x192.png",
   },
   {
-    quote:
-      "Langflow has completely transformed the way we iterate and deploy AI workflows.",
-    authorName: "Brendon Geils",
-    authorTitle: "CEO, Athena Intelligence",
-    authorImage: "/images/Coo.png",
+    quote: "Create intelligent receptionist agents that handle customer inquiries, book appointments, and provide 24/7 support using our advanced AI components.",
+    authorName: "AI-Powered Receptionist",
+    authorTitle: "1600+ Components Available",
+    authorImage: "/favicon_io/android-icon-192x192.png",
   },
 ];
 const HERO_CONTENT = {
-  title: "Stop fighting your tools",
+  title: "Automate Customer Service with AI",
   description:
-    "Langflow is a powerful tool to build and deploy AI agents and MCP servers. It comes with batteries included and supports all major LLMs, vector databases and a growing library of AI tools.",
+    "AxieStudio is a powerful platform to build and deploy AI-powered customer service flows. Create booking agents, email automation, and support workflows with Gmail, Calendar, and 100+ integrations.",
   image: {
     src: "/images/Gradient.png",
     alt: "gradient",
@@ -195,71 +81,54 @@ const HERO_CONTENT = {
   },
   buttons: {
     primary: {
-      label: "Get Started for Free",
-      link: "/desktop",
+      label: "Try AxieStudio Free",
+      link: "https://flow.axiestudio.se",
     },
     secondary: {
-      label: "Star on GitHub",
-      link: "https://github.com/langflow-ai/langflow",
+      label: "Swedish Version",
+      link: "https://se.axiestudio.se",
     },
   },
 };
 const NOTEBOOK = {
-  title: "From Notebook to Production",
+  title: "Enterprise",
   description:
-    "Getting your AI in front of real users shouldn’t be a headache.",
+    "Get your locally deployed AxieStudio via Docker image - dedicated enterprise solution.",
 };
 
 const CARDS = [
   {
-    text: "Deploy yourself or sign up for a free cloud account",
+    text: "Try AxieStudio free - English or Swedish versions available",
     Component: Signup,
     background: true,
     image: "/images/card-1.png",
   },
   {
-    text: "Deploy and scale on an enterprise-grade, secure cloud platform",
+    text: "Embed AxieStudio chat widgets on your website for instant customer service",
     Component: CloudPlatform,
     background: false,
     image: "/images/card-2.png",
   },
   {
-    text: "Same Langflow whether you’re using OSS or Cloud",
+    text: "Same AxieStudio whether you're using OSS or Cloud",
     Component: Langflow,
     background: false,
     image: "/images/card-3.png",
   },
 ];
-const PARTNERS_STACK_TEXT = {
-  title: "Connect your existing tools",
-  description:
-    "Choose from hundreds of data sources, models, or vector stores. If you don’t find what you’re looking for, build your own custom component.",
-};
-const STACK_TEXT = {
-  heading: "Used by leading AI development teams",
-};
-const STACK_LOGOS = [
-  FyxtLogo,
-  SurveyHub,
-  Athena,
-  Ecclesiasical,
-  Ik,
-  Foqum,
-  PAP,
-  IntimeGDT,
-];
+
 const GET_STARTED = {
-  title: "Create your first flow",
+  title: "Build Your Customer Service Flow",
   description:
-    "Join thousands of developers accelerating their AI workflows. Start your first Langflow project now.",
+    "Join thousands of businesses automating their customer service with AI. Create your first AxieStudio customer service flow now.",
   buttons: {
     primary: {
-      label: "Get Started for Free",
-      link: "/desktop",
+      label: "Start Building Now",
+      link: "https://flow.axiestudio.se",
     },
     secondary: {
-      label: "Star on GitHub",
-      link: "https://github.com/langflow-ai/langflow",
+      label: "View Documentation",
+      link: "https://docs.axiestudio.se",
     },
   },
   image: {
@@ -275,24 +144,24 @@ const DOWNLOAD_OPTIONS = [
   {
     icon: <Apple />,
     name: "macOS (Apple Silicon)",
-    link: "https://github.com/langflow-ai/langflow/releases/download/1.5.0.post1/Langflow_1.5.1_aarch64.dmg",
-    fileName: "Langflow_1.5.1_aarch64.dmg",
+    link: "https://github.com/axiestudio/axiestudio/releases/download/v1.5.1/AxieStudio_1.5.1_aarch64.dmg",
+    fileName: "AxieStudio_1.5.1_aarch64.dmg",
     btnText: "Download",
     isComingSoon: false,
   },
   {
     icon: <Apple />,
     name: "macOS (Intel)",
-    link: "https://github.com/langflow-ai/langflow/releases/download/1.5.0.post1/Langflow_1.5.1_x86_64.dmg",
-    fileName: "Langflow_1.5.1_x86_64.dmg",
+    link: "https://github.com/axiestudio/axiestudio/releases/download/v1.5.1/AxieStudio_1.5.1_x86_64.dmg",
+    fileName: "AxieStudio_1.5.1_x86_64.dmg",
     btnText: "Download",
     isComingSoon: false,
   },
   {
     icon: <Windows />,
     name: "Windows (x64)",
-    link: "https://github.com/langflow-ai/langflow/releases/download/1.5.0.post1/Langflow_1.5.1_x64_en-US.msi",
-    fileName: "Langflow_1.5.1_x64_en-US.msi",
+    link: "https://github.com/axiestudio/axiestudio/releases/download/v1.5.1/AxieStudio_1.5.1_x64_en-US.msi",
+    fileName: "AxieStudio_1.5.1_x64_en-US.msi",
     btnText: "Download",
     isComingSoon: false,
   },
@@ -307,10 +176,10 @@ const DOWNLOAD_OPTIONS = [
   // {
   //   icon: <Globe />,
   //   name: "Web app",
-  //   link: "https://github.com/langflow-ai/langflow/releases/download/1.4.2/Langflow_aarch64.dmg",
+  //   link: "https://flow.axiestudio.se",
   //   fileName: "",
   //   btnText: "Open",
-  //   isComingSoon: true,
+  //   isComingSoon: false,
   // },
 ];
 
@@ -321,9 +190,8 @@ export {
   HERO_CONTENT,
   NOTEBOOK,
   CARDS,
-  PARTNERS_STACK_TEXT,
-  STACK_TEXT,
-  STACK_LOGOS,
+
   GET_STARTED,
   DOWNLOAD_OPTIONS,
 };
+

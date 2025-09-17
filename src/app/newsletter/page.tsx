@@ -5,18 +5,18 @@ import type { Metadata } from "next";
 
 export const generateMetadata = (): Metadata => {
   return {
-    title: "AI++ Newsletter | Langflow",
+    title: "AI++ Newsletter | AxieStudio",
     description:
-      "Sign up for the AI++ Newsletter to stay updated with the latest in AI, Agents and MCP.",
+      "Sign up for the AI++ Newsletter to stay updated with the latest in AI, Customer Service Automation, and AxieStudio features.",
   };
 };
 
-const Desktop = async () => {
+const Newsletter = async () => {
   return (
-    <Page className="layout" type="desktop">
+    <Page className="layout" type="normal">
       <Template />
     </Page>
   );
 };
 
-export default Desktop;
+export default Newsletter;

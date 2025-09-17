@@ -6,32 +6,32 @@ const nextConfig = {
     return [
       {
         source: "/discord",
-        destination: "https://discord.com/invite/EqksyE2EX9",
+        destination: "https://discord.gg/axiestudio",
         permanent: false,
       },
       {
         source: "/github",
-        destination: "https://github.com/langflow-ai/langflow",
+        destination: "https://github.com/axiestudio/axiestudio",
         permanent: false,
       },
       {
         source: "/twitter",
-        destination: "https://x.com/langflow_ai",
+        destination: "https://x.com/axiestudio",
         permanent: false,
       },
       {
         source: "/youtube",
-        destination: "https://www.youtube.com/@langflow",
+        destination: "https://www.youtube.com/@axiestudio",
         permanent: false,
       },
       {
         source: "/x",
-        destination: "https://x.com/langflow_ai",
+        destination: "https://x.com/axiestudio",
         permanent: false,
       },
       {
         source: "/docs",
-        destination: "https://docs.langflow.org",
+        destination: "https://docs.axiestudio.se",
         permanent: false,
       },
     ];
@@ -42,7 +42,7 @@ export default withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-  org: "langflow-e2",
+  org: "axiestudio",
   project: "website",
 
   // Only print logs for uploading source maps in CI

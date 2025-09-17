@@ -14,45 +14,47 @@ export const generateMetadata = (): Metadata => {
     other: {
       ...Sentry.getTraceData(),
     },
-    metadataBase: new URL("https://www.langflow.org"),
-    title: "Langflow | Low-code AI builder for agentic and RAG applications",
+    metadataBase: new URL("https://www.axiestudio.com"),
+    title: "AxieStudio | AI-Powered Customer Service Automation",
     description:
-      "Langflow is a low-code AI builder for agentic and retrieval-augmented generation (RAG) apps. Code in Python and use any LLM or vector database.",
+      "AxieStudio is a powerful platform for building AI-powered customer service flows. Create booking agents, email automation, and support workflows with Gmail, Calendar, and 100+ integrations.",
     icons: {
       icon: "/favicon.ico",
     },
     keywords: [
-      "Langflow",
+      "AxieStudio",
       "AI",
-      "Development",
-      "Agentic",
-      "RAG",
-      "Agents",
-      "Programming",
+      "Customer Service",
+      "Automation",
+      "Booking Agent",
+      "Email Automation",
+      "Support Flows",
+      "Gmail Integration",
+      "Calendar Integration",
     ],
-    authors: [{ name: "Langflow", url: "https://langflow.org" }],
-    creator: "Langflow",
-    publisher: "Langflow",
+    authors: [{ name: "AxieStudio", url: "https://axiestudio.com" }],
+    creator: "AxieStudio",
+    publisher: "AxieStudio",
     openGraph: {
-      title: "Langflow | Low-code AI builder for agentic and RAG applications",
+      title: "AxieStudio | AI-Powered Customer Service Automation",
       description:
-        "Langflow is a low-code AI builder for agentic and retrieval-augmented generation (RAG) apps. Code in Python and use any LLM or vector database.",
-      url: "https://langflow.org",
-      siteName: "Langflow",
+        "AxieStudio is a powerful platform for building AI-powered customer service flows. Create booking agents, email automation, and support workflows.",
+      url: "https://axiestudio.com",
+      siteName: "AxieStudio",
       images: [
         {
           url: "/images/og-image.png",
           width: 1200,
           height: 630,
-          alt: "Langflow - Low-code AI builder",
+          alt: "AxieStudio - AI-Powered Customer Service",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Langflow | Low-code AI builder for agentic and RAG applications",
+      title: "AxieStudio | AI-Powered Customer Service Automation",
       description:
-        "Langflow is a low-code AI builder for agentic and retrieval-augmented generation (RAG) apps. Code in Python and use any LLM or vector database.",
+        "AxieStudio is a powerful platform for building AI-powered customer service flows. Create booking agents, email automation, and support workflows.",
       images: ["/images/og-image.png"],
     },
   };
@@ -72,7 +74,7 @@ export default function RootLayout({
           rel="alternate"
           type="application/rss+xml"
           href="/blog/rss.xml"
-          title="Langflow RSS Feed"
+          title="AxieStudio RSS Feed"
         />
       </head>
       <body>

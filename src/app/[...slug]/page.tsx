@@ -74,11 +74,11 @@ export const generateMetadata = async ({ params: { slug } }: Props) => {
     title: metadata?.title,
     description: metadata?.description || "",
     openGraph: {
-      url: `https://www.langflow.org/${metadata?.slug?.current?.replace(/^\//, "")}`,
+      url: `https://axiestudio.se/${metadata?.slug?.current?.replace(/^\//, "")}`,
       title: metadata?.title,
       description: metadata?.description || "",
-      siteName: "Langflow",
-      images: [metadata?.thumbnail ? metadata?.thumbnail : "/images/logo.png"],
+      siteName: "AxieStudio",
+      images: [metadata?.thumbnail ? metadata?.thumbnail : "/images/axiestudio-logo.svg"],
     },
   };
 };

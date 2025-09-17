@@ -10,9 +10,7 @@ const Footer = () => {
   return (
     <footer className={`${styles.footer}`}>
       <div className={styles.container}>
-        <div className={styles.right}>
-          <Social />
-        </div>
+
         <div className={styles.innerContainer}>
           <div className={styles.copyright}>
             <Display
@@ -23,6 +21,26 @@ const Footer = () => {
               {`© ${new Date().getFullYear()}. All rights reserved`}
             </Display>
           </div>
+          <div className={styles.left}>
+            <Display
+              size={100}
+              weight={600}
+              className={styles.innerContainer_font}
+            >
+              ·
+            </Display>
+          </div>
+
+          <div className={styles.left}>
+            <Display
+              size={100}
+              weight={400}
+              className={styles.innerContainer_font}
+            >
+              <Link href={"/privacy-policy"}>{"Privacy Policy"}</Link>
+            </Display>
+          </div>
+
           <div className={styles.left}>
             <Display
               size={100}

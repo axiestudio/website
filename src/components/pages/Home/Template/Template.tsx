@@ -2,7 +2,6 @@ import React from "react";
 import Hero from "../Hero";
 import Quote from "../Quote";
 import GetStarted from "../GetStarted";
-import PartnersStack from "../PartnersStack/PartnersStack";
 import DragNDrop from "../DragNDrop";
 import BlackBoxes from "../BlackBoxes";
 import Notebook from "../Notebook";
@@ -17,7 +16,6 @@ const Template = () => {
       <Quote {...QUOTES_DATA[1]} />
       <DragNDrop />
       <Notebook />
-      <PartnersStack />
       <Quote {...QUOTES_DATA[2]} removePaddingOnMobile />
       <GetStarted />
     </>

@@ -16,7 +16,7 @@ export function KitForm() {
       referrer = window.location.href;
       if (!referrer.includes("utm_source")) {
         const url = new URL(referrer);
-        url.searchParams.set("utm_source", "langflow.org");
+        url.searchParams.set("utm_source", "axiestudio.se");
         url.searchParams.set("utm_medium", "website");
         url.searchParams.set("utm_campaign", "organic");
         referrer = url.toString();
@@ -33,7 +33,7 @@ export function KitForm() {
   const [state, formAction] = useFormState(kitSubscribe, initialState);
 
   if (state.success) {
-    trackEvent("Langflow.org - Newsletter Subscribe Button Clicked", {
+    trackEvent("AxieStudio.se - Newsletter Subscribe Button Clicked", {
       text: "Subscribe",
     });
   }

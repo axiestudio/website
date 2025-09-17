@@ -1,7 +1,7 @@
 // components/TestimonialSection.tsx
 import Image from 'next/image';
 import styles from './styles.module.scss';
-import AthenaVertical from '@/components/ui/icons/AthenaVertical/AthenaVertical';
+// Removed Athena Intelligence branding
 
 type TestimonialSectionProps = {
   quote: string;
@@ -12,13 +12,13 @@ type TestimonialSectionProps = {
   removePaddingOnMobile?: boolean;
 };
 
-const Quote = ({ quote, authorName, authorTitle, authorImage, icon = <AthenaVertical />, removePaddingOnMobile = false }: TestimonialSectionProps) => {
+const Quote = ({ quote, authorName, authorTitle, authorImage, icon = null, removePaddingOnMobile = false }: TestimonialSectionProps) => {
   return (
     <section className={`${styles.testimonialSection} container-wide ${removePaddingOnMobile ? styles.removePaddingOnMobile : ''}`}>
       <p className={styles.quote}>“{quote}”</p>
 
       <div className={styles.detailsContainer}>
-        <div className={styles.icon}>{icon}</div>
+        {icon && <div className={styles.icon}>{icon}</div>}
         <div className={`d-flex align-items-center ${styles.details}`}>
           <Image src={authorImage} alt={authorName} width={72} height={72} className={styles.authorImage} />
           <div className={styles.author}>

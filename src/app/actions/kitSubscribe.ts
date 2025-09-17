@@ -13,48 +13,32 @@ export async function kitSubscribe(
   const email = formData.get("email") as string;
   const referrer = previousState.referrer;
 
-  const options = {
-    method: "POST",
-    headers: {
-      "X-Kit-Api-Key": process.env.KIT_API_KEY ?? "",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email_address: email, state: "inactive" }),
-  };
-
   try {
-    const response = await fetch("https://api.kit.com/v4/subscribers", options);
-    const data = await response.json();
+    // Send newsletter subscription via our Resend API
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/newsletter`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        referrer,
+      }),
+    });
 
     if (response.ok) {
-      if (process.env.KIT_FORM_ID) {
-        const formOptions = {
-          method: "POST",
-          headers: {
-            "X-Kit-Api-Key": process.env.KIT_API_KEY ?? "",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email_address: email,
-            referrer,
-          }),
-        };
-        fetch(
-          `https://api.kit.com/v4/forms/${process.env.KIT_FORM_ID}/subscribers`,
-          formOptions
-        )
-          .then((res) => res.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error("Error submitting form:", error));
-      }
+      const result = await response.json();
+      console.log("Newsletter Subscription:", result);
+
       return {
         errors: [],
         success: true,
         referrer,
       };
     } else {
+      const errorData = await response.json();
       return {
-        errors: data.errors,
+        errors: [errorData.error || 'Failed to subscribe to newsletter'],
         success: false,
         referrer,
       };

@@ -21,7 +21,7 @@ const DownloadButton = ({ url }: { url: string }) => {
       />
       <Link href={url}>
         <Display size={100} className={"text-center text-black"}>
-          {"Download Langflow"}
+          {"Download AxieStudio"}
         </Display>
       </Link>
     </div>

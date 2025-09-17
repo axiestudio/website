@@ -17,7 +17,7 @@ const CHANGE_FREQUENCIES = {
 } as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.langflow.org";
+  const baseUrl = "https://axiestudio.se";
 
   // Current date for lastModified
   const date = new Date();
@@ -28,12 +28,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: date,
       changeFrequency: CHANGE_FREQUENCIES.MONTHLY,
       priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/desktop`,
-      lastModified: date,
-      changeFrequency: CHANGE_FREQUENCIES.MONTHLY,
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
@@ -52,6 +46,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: date,
       changeFrequency: CHANGE_FREQUENCIES.MONTHLY,
       priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/consultation`,
+      lastModified: date,
+      changeFrequency: CHANGE_FREQUENCIES.MONTHLY,
+      priority: 0.7,
     },
   ];
 

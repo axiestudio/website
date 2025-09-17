@@ -9,12 +9,13 @@ import Link from "@/components/ui/Link";
 import Badge from "@/components/ui/Header/Badge";
 import Display from "@/components/ui/Display";
 import DownArrow from "@/components/icons/downArrow/DownArrow";
-import Social from "../Social";
+import Social from "@/components/ui/Social/Social";
+
 // Utils
 import { LIST } from "@/utils/constants";
 
-// Assests
-import Logo from "../../../../public/images/logo.png";
+// Assets
+import Logo from "../../../../public/favicon_io/android-icon-192x192.png";
 
 // Styles
 import styles from "./styles.module.scss";
@@ -62,7 +63,7 @@ const Header = () => {
                     {item?.link ? (
                       <Link
                         href={item.link}
-                        data-event="Langflow.org - Nav Clicked"
+                        data-event="AxieStudio.se - Nav Clicked"
                         data-top-level={item.title}
                       >
                         <Display size={100} className={styles.drawerItem_heading}>
@@ -122,14 +123,14 @@ const Header = () => {
         <div className={styles.left}>
           <Link
             href={"/"}
-            data-event="Langflow.org - Logo Clicked"
-            data-text="Langflow"
+            data-event="AxieStudio.se - Logo Clicked"
+            data-text="AxieStudio"
           >
             <Image
               src={Logo}
-              alt="Langflow Logo"
-              width={123}
-              height={24}
+              alt="AxieStudio Logo"
+              width={40}
+              height={40}
               className={styles.left_img}
             />
           </Link>
@@ -214,15 +215,16 @@ const Header = () => {
             })}
           </nav>
         </div>
+
         <div className={styles.right}>
           <Social />
-        </div>
-        <div
-          className={`${styles.menuButton} ${isActive ? styles.active : ""}`}
-          onClick={toggleMenu}
-        >
-          <span></span>
-          <span></span>
+          <div
+            className={`${styles.menuButton} ${isActive ? styles.active : ""}`}
+            onClick={toggleMenu}
+          >
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </section>
