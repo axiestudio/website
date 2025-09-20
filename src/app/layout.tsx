@@ -16,7 +16,6 @@ export const generateMetadata = (): Metadata => {
     // other: {
     //   ...Sentry.getTraceData(),
     // },
-    metadataBase: new URL("https://www.axiestudio.com"),
     title: "AxieStudio | AI-Powered Customer Service Automation",
     description:
       "AxieStudio is a powerful platform for building AI-powered customer service flows. Create booking agents, email automation, and support workflows with Gmail, Calendar, and 100+ integrations.",
@@ -34,14 +33,14 @@ export const generateMetadata = (): Metadata => {
       "Gmail Integration",
       "Calendar Integration",
     ],
-    authors: [{ name: "AxieStudio", url: "https://axiestudio.com" }],
+    authors: [{ name: "AxieStudio" }],
     creator: "AxieStudio",
     publisher: "AxieStudio",
     openGraph: {
       title: "AxieStudio | AI-Powered Customer Service Automation",
       description:
         "AxieStudio is a powerful platform for building AI-powered customer service flows. Create booking agents, email automation, and support workflows.",
-      url: "https://axiestudio.com",
+      // Let Vercel handle URL automatically
       siteName: "AxieStudio",
       images: [
         {

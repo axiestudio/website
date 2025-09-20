@@ -11,7 +11,10 @@ const CHANGE_FREQUENCIES = {
 } as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://axiestudio.se";
+  // Let Vercel handle base URL automatically - will use the current domain
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : ""; // Vercel will handle this automatically
 
   // Current date for lastModified
   const date = new Date();

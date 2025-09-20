@@ -28,7 +28,7 @@ export const generateMetadata = async ({ params: { slug } }: Props) => {
     title: "Page Not Found - AxieStudio",
     description: "The requested page was not found.",
     openGraph: {
-      url: `https://axiestudio.se/${slug.join("/")}`,
+      // Let Vercel handle URL automatically
       title: "Page Not Found - AxieStudio",
       description: "The requested page was not found.",
       siteName: "AxieStudio",
