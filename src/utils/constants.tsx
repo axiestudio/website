@@ -12,6 +12,12 @@ import Windows from "@/components/ui/icons/Windows";
 
 const LIST = [
   {
+    title: "App Download",
+    link: "/desktop-form",
+    icon: "/assets/icons/download.svg",
+    comingSoon: false,
+  },
+  {
     title: "Docs",
     link: "https://docs.axiestudio.se/",
     icon: "/assets/icons/docs.svg",
@@ -27,6 +33,12 @@ const LIST = [
     title: "Consultation",
     link: "/consultation",
     icon: "/assets/icons/consultation.svg",
+    comingSoon: false,
+  },
+  {
+    title: "Admin",
+    link: "/admin",
+    icon: "/assets/icons/admin.svg",
     comingSoon: false,
   },
 ];
@@ -143,35 +155,27 @@ const GET_STARTED = {
 const DOWNLOAD_OPTIONS = [
   {
     icon: <Apple />,
-    name: "macOS (Apple Silicon)",
-    link: "https://github.com/axiestudio/axiestudio/releases/download/v1.5.1/AxieStudio_1.5.1_aarch64.dmg",
-    fileName: "AxieStudio_1.5.1_aarch64.dmg",
-    btnText: "Download",
-    isComingSoon: false,
-  },
-  {
-    icon: <Apple />,
-    name: "macOS (Intel)",
-    link: "https://github.com/axiestudio/axiestudio/releases/download/v1.5.1/AxieStudio_1.5.1_x86_64.dmg",
-    fileName: "AxieStudio_1.5.1_x86_64.dmg",
-    btnText: "Download",
-    isComingSoon: false,
-  },
-  {
-    icon: <Windows />,
-    name: "Windows (x64)",
-    link: "https://github.com/axiestudio/axiestudio/releases/download/v1.5.1/AxieStudio_1.5.1_x64_en-US.msi",
-    fileName: "AxieStudio_1.5.1_x64_en-US.msi",
-    btnText: "Download",
-    isComingSoon: false,
-  },
-  {
-    icon: <Windows />,
-    name: "Windows (Arm)",
-    link: "/",
+    name: "macOS",
+    link: "/desktop-form",
     fileName: "",
-    btnText: "",
-    isComingSoon: true,
+    btnText: "Get Download Link",
+    isComingSoon: false,
+  },
+  {
+    icon: <Windows />,
+    name: "Windows",
+    link: "/desktop-form",
+    fileName: "",
+    btnText: "Get Download Link",
+    isComingSoon: false,
+  },
+  {
+    icon: <Windows />,
+    name: "Linux (Ubuntu)",
+    link: "/desktop-form",
+    fileName: "",
+    btnText: "Get Download Link",
+    isComingSoon: false,
   },
   // {
   //   icon: <Globe />,

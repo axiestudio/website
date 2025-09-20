@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { NewsletterEmailTemplate } from '@/components/email/NewsletterEmailTemplate';
 import { NewsletterConfirmationTemplate } from '@/components/email/NewsletterConfirmationTemplate';
-import { saveNewsletterSubscriber } from '@/lib/database';
+import { saveNewsletterSubscriber, initializeDatabase } from '@/lib/neon-database';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -64,6 +64,9 @@ export async function POST(request: NextRequest) {
       console.error('User confirmation email error:', userConfirmError);
       // Don't fail the request if confirmation email fails
     }
+
+    // Initialize database tables if they don't exist
+    await initializeDatabase();
 
     // Save to database for tracking and future newsletters
     const savedSubscriber = await saveNewsletterSubscriber({

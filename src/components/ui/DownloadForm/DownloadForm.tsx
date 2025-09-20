@@ -15,24 +15,15 @@ import { trackEvent } from '@/lib/utils/tracking';
 import styles from "./styles.module.scss";
 
 const DownloadForm = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const handleDownload = async (url: string, filename: string) => {
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    trackEvent("Langflow.org - Langflow Desktop Downloaded", {
-      text: "Download",
-      filename: filename
-    });
-    a.click();
-    window.URL.revokeObjectURL(url);
-    document.body.removeChild(a);
+  const handleGetDownload = (url: string) => {
+    window.location.href = url;
   };
 
-  if (formSubmitted) {
-    return (
+  return (
+    <>
+      <Display className="text-white" size={100} weight={400}>
+        Get started with AxieStudio desktop app for your operating system.
+      </Display>
       <div className={styles.list}>
         {DOWNLOAD_OPTIONS.map((option, index) => (
           <div key={index} className={styles.listItem}>
@@ -54,7 +45,7 @@ const DownloadForm = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  handleDownload(option.link, option.fileName);
+                  handleGetDownload(option.link);
                 }}
                 className={styles.downloadButton}
               >
@@ -70,20 +61,6 @@ const DownloadForm = () => {
           </div>
         ))}
       </div>
-    );
-  }
-
-  return (
-    <>
-      <Display className="text-white" size={100} weight={400}>
-        Fill out the form below to receive access to download the desktop app
-        for Mac or Windows.
-      </Display>
-      <MarketoForm
-        showFootNote={false}
-        onSuccess={() => setFormSubmitted(true)}
-        id={5302}
-      />
     </>
   );
 };

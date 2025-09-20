@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { ConsultationEmailTemplate } from '@/components/email/ConsultationEmailTemplate';
 import { ConsultationConfirmationTemplate } from '@/components/email/ConsultationConfirmationTemplate';
-import { saveConsultationRequest } from '@/lib/database';
+import { saveConsultationRequest, initializeDatabase } from '@/lib/neon-database';
 
 // Initialize Resend only if API key is available
 const getResendClient = () => {
@@ -95,6 +95,9 @@ export async function POST(request: NextRequest) {
       console.error('User confirmation email error:', userConfirmError);
       // Don't fail the request if confirmation email fails
     }
+
+    // Initialize database tables if they don't exist
+    await initializeDatabase();
 
     // Save to database for tracking and analytics
     const savedRequest = await saveConsultationRequest({

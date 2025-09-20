@@ -1,0 +1,170 @@
+@import "/src/styles/variables";
+@import "~bootstrap/scss/mixins";
+
+.template {
+  background: var(--primary-black);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @include media-breakpoint-down(lg) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+}
+
+.leftColumn {
+  @include media-breakpoint-down(lg) {
+    order: 2;
+  }
+}
+
+.rightColumn {
+  @include media-breakpoint-down(lg) {
+    order: 1;
+  }
+}
+
+.heading {
+  font-size: 3.5rem;
+  line-height: 1.2;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 2.5rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 2rem;
+  }
+}
+
+.description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.1rem;
+  }
+}
+
+.successIcon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.stepsList {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.stepNumber {
+  background: var(--primary-purple);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.stepDescription {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.resourcesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.resourceButton {
+  padding: 1rem 1.5rem !important;
+  text-align: left !important;
+  font-size: 0.95rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.emailNote {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.emailIcon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+@include media-breakpoint-down(md) {
+  .resourcesList {
+    grid-template-columns: 1fr;
+  }
+  
+  .stepsList {
+    padding: 1.5rem;
+  }
+  
+  .step {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,4 +1,5 @@
-import fs from 'fs/promises';
+import * as fs from 'fs';
+import * as fsPromises from 'fs/promises';
 import path from 'path';
 
 // Define data types
@@ -31,9 +32,9 @@ const SUBSCRIBERS_FILE = path.join(DATA_DIR, 'subscribers.json');
 // Ensure data directory exists
 async function ensureDataDir() {
   try {
-    await fs.access(DATA_DIR);
+    await fsPromises.access(DATA_DIR);
   } catch {
-    await fs.mkdir(DATA_DIR, { recursive: true });
+    await fsPromises.mkdir(DATA_DIR, { recursive: true });
   }
 }
 
@@ -41,7 +42,7 @@ async function ensureDataDir() {
 async function readJsonFile<T>(filePath: string): Promise<T[]> {
   try {
     await ensureDataDir();
-    const data = await fs.readFile(filePath, 'utf-8');
+    const data = await fsPromises.readFile(filePath, 'utf-8');
     return JSON.parse(data);
   } catch {
     return [];
@@ -50,7 +51,7 @@ async function readJsonFile<T>(filePath: string): Promise<T[]> {
 
 async function writeJsonFile<T>(filePath: string, data: T[]): Promise<void> {
   await ensureDataDir();
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+  await fsPromises.writeFile(filePath, JSON.stringify(data, null, 2));
 }
 
 // Consultation functions
@@ -136,11 +137,68 @@ function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
+// Desktop Download Request functions
+export interface DesktopDownloadRequest {
+  id: string;
+  name: string;
+  email: string;
+  company?: string | null;
+  operatingSystem: string;
+  language: string;
+  useCase?: string | null;
+  subscribeNewsletter: boolean;
+  downloadLink: string;
+  status: 'sent' | 'downloaded' | 'failed';
+  timestamp: string;
+  ipAddress?: string;
+  userAgent?: string;
+}
+
+const DESKTOP_DOWNLOADS_FILE = path.join(process.cwd(), 'data', 'desktop-downloads.json');
+
+export async function getDesktopDownloadRequests(): Promise<DesktopDownloadRequest[]> {
+  try {
+    await ensureDataDir();
+
+    if (!fs.existsSync(DESKTOP_DOWNLOADS_FILE)) {
+      await fsPromises.writeFile(DESKTOP_DOWNLOADS_FILE, JSON.stringify([]));
+      return [];
+    }
+
+    const data = await fsPromises.readFile(DESKTOP_DOWNLOADS_FILE, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Error reading desktop downloads:', error);
+    return [];
+  }
+}
+
+export async function addDesktopDownloadRequest(request: Omit<DesktopDownloadRequest, 'id' | 'timestamp'>): Promise<boolean> {
+  try {
+    const downloads = await getDesktopDownloadRequests();
+
+    const newRequest: DesktopDownloadRequest = {
+      ...request,
+      id: generateId(),
+      timestamp: new Date().toISOString(),
+    };
+
+    downloads.push(newRequest);
+
+    await fsPromises.writeFile(DESKTOP_DOWNLOADS_FILE, JSON.stringify(downloads, null, 2));
+    return true;
+  } catch (error) {
+    console.error('Error adding desktop download request:', error);
+    return false;
+  }
+}
+
 // Analytics functions
 export async function getAnalytics() {
   const consultations = await getConsultationRequests();
   const subscribers = await getNewsletterSubscribers();
-  
+  const desktopDownloads = await getDesktopDownloadRequests();
+
   return {
     consultations: {
       total: consultations.length,
@@ -153,5 +211,23 @@ export async function getAnalytics() {
       active: subscribers.filter(s => s.status === 'active').length,
       unsubscribed: subscribers.filter(s => s.status === 'unsubscribed').length,
     },
+    desktopDownloads: {
+      total: desktopDownloads.length,
+      sent: desktopDownloads.filter(d => d.status === 'sent').length,
+      downloaded: desktopDownloads.filter(d => d.status === 'downloaded').length,
+      failed: desktopDownloads.filter(d => d.status === 'failed').length,
+      byOS: {
+        windows: desktopDownloads.filter(d => d.operatingSystem === 'windows').length,
+        macos: desktopDownloads.filter(d => d.operatingSystem === 'macos').length,
+        linux: desktopDownloads.filter(d => d.operatingSystem === 'linux').length,
+      },
+      byLanguage: {
+        english: desktopDownloads.filter(d => d.language === 'english').length,
+        swedish: desktopDownloads.filter(d => d.language === 'swedish').length,
+      },
+    },
+    consultationsList: consultations.slice(0, 10),
+    subscribersList: subscribers.slice(0, 10),
+    desktopDownloadsList: desktopDownloads.slice(0, 10),
   };
 }
